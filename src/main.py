@@ -55,7 +55,7 @@ async def rate_limit_middleware(request: Request, call_next):
             _client_buckets[client_id] = bucket
 
         if bucket["count"] >= _RATE_LIMIT:
-            reset_seconds = int((_RATE_WINDOW - (now - bucket["window_start"])).total_seconds())
+            reset_seconds = int((_RATE_WINDOW - (now - bucket["window_start"]).total_seconds()))
             return JSONResponse(
                 status_code=status.HTTP_429_TOO_MANY_REQUESTS,
                 content={
@@ -72,6 +72,6 @@ async def rate_limit_middleware(request: Request, call_next):
             )
         bucket["count"] += 1
         remaining = max(0, _RATE_LIMIT - bucket["count"])
-        reset_seconds = int((_RATE_WINDOW - (now - bucket["window_start"])).total_seconds())
+        reset_seconds = int((_RATE_WINDOW - (now - bucket["window_start"]).total_seconds()))
 
     response = aw

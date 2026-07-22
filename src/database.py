@@ -42,4 +42,3 @@ def create_tables() -> None:
     Call this at application startup if you want to create tables programmatically.
     """
     Base.metadata.create_all(bind=engine)
-

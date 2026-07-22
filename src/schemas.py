@@ -82,4 +82,3 @@ class NoteUpdate(BaseModel):
         if len(v_stripped) > 500:
             raise ValueError("text must be at most 500 characters")
         return v_stripped
-

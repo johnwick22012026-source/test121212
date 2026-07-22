@@ -110,5 +110,4 @@ export default function App() {
         completed_at: null,
       };
       setNotes((prev) => [note, ...prev]);
-      setInput("
-"}]}
+      setInput(""
